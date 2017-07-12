@@ -1,5 +1,5 @@
 # leetcode_day_by_day (C language)
-## Day1 Remove Duplicates from Sorted Array
+## Day 01 Remove Duplicates from Sorted Array
 Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
 ```
 int removeDuplicates(int* nums, int numsSize) {
