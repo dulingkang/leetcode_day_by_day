@@ -1,5 +1,5 @@
 # leetcode_day_by_day (Swift)
-## Day 01 Remove Duplicates from Sorted Array
+## Day-01 : Remove Duplicates from Sorted Array
 Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
 C:
 ```
@@ -30,7 +30,7 @@ func removeDuplicates(_ nums:[Int], _ numsSize: Int) -> Int {
     return index
 }
 ```
-## Day 02 Two Sum
+## Day-02 : Two Sum
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 Example:
