@@ -58,3 +58,51 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 }
 
 ```
+
+## Day-03 : Add Two Numbers
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+> 关键点分析：head初始化及移动，进位处理，next结束处理。
+
+代码：
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public var val: Int
+ *     public var next: ListNode?
+ *     public init(_ val: Int) {
+ *         self.val = val
+ *         self.next = nil
+ *     }
+ * }
+ */
+class Solution {
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+         var l2 = l2
+    var l1 = l1
+    var head = ListNode(0)
+    var node = head
+    var number = 0
+
+    while l1 != nil || l2 != nil {
+        let sum = (l1?.val)! + (l2?.val)! + number
+        number = sum / 10
+        node.next = ListNode(sum % 10)
+        node = node.next!
+        l1 = l1?.next
+        l2 = l2?.next
+    }
+    if number > 0 {
+        node.next = ListNode(number)
+    }
+    return head.next
+    }
+}
+```
+
+
