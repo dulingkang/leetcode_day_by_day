@@ -104,5 +104,36 @@ class Solution {
     }
 }
 ```
+## Day-04 : Longest Substring Without Repeating Characters
+Given a string, find the length of the longest substring without repeating characters.
+
+Examples:
+
+Given "abcabcbb", the answer is "abc", which the length is 3.
+
+Given "bbbbb", the answer is "b", with the length of 1.
+
+Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+> 分析：找到当前的index，和前一个记住的preIndex，相减，以下swift代码超时了，通不过leetcode提交。
+```
+func lengthOfLongestSubstring(_ s: String) -> Int {
+    var distance = 0
+    let len = s.characters.count
+    if len == 1 {
+        return 1
+    }
+    var dict = [Character: Int]()
+    var preIndex = 0
+    for j in 0 ..< len {
+        let str = s[s.index(s.startIndex, offsetBy: j)]
+        if let d = dict[str] {
+            preIndex = max(preIndex, d)
+        }
+        distance = max(j - preIndex + 1, distance)
+        dict.updateValue(j + 1, forKey: str)
+    }
+    return distance
+}
+```
 
 
